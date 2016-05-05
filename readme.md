@@ -1,6 +1,6 @@
 # type-check
-[honeo/type-check](https://github.com/honeo/type-check)  
-
+[honeo/type-check](https://github.com/honeo/type-check)    
+[@honeo/type-check](https://www.npmjs.com/package/@honeo/type-check)
 
 ## なにこれ
 型・インスタンス等をチェックするやつ。  
