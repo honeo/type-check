@@ -13,13 +13,13 @@ $ npm i -S @honeo/type-check
 ```js
 import is from '@honeo/type-check';
 
+is.num();
+> false
+
 is.arr([]);
 > true
 
 is.str('hoge', 'fuga');
-> true
-
-is.num(1, 2, 3);
 > true
 ```
 
