@@ -44,7 +44,20 @@ function isString(arg){
 base.string = isString;
 base.str = isString;
 
+function isUndefined(arg){
+	return arg===undefined;
+}
+base.undefined = isUndefined;
 
+function isNull(arg){
+	return arg===null;
+}
+base.null = isNull;
+
+function isNaN(arg){
+	return Number.isNaN(arg);
+}
+base.nan = isNaN;
 
 /*
 	インスタンス判定

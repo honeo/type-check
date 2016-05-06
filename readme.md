@@ -78,7 +78,25 @@ is.str('fuga', 'piyo');
 > true
 ```
 
-## object(), obj()
+### undefined()
+```js
+is.undefined(undefined);
+> true
+```
+
+### null()
+```js
+is.null(null);
+> true
+```
+
+### nan()
+```js
+is.nan(NaN);
+> true
+```
+
+### object(), obj()
 ```js
 is.object({});
 > true
@@ -90,61 +108,61 @@ is.obj(null);
 > false
 ```
 
-## promise()
+### promise()
 ```js
 is.promise(new Promise(_=>_));
 > true
 ```
 
-## node()
+### node()
 ```js
 is.node(document.createElement('a'), document.createTextNode('hoge'));
 > true
 ```
 
-## textnode()
+### textnode()
 ```js
 is.textnode(document.createTextNode('hoge'));
 > true
 ```
 
-## element()
+### element()
 ```js
 is.element(document.head, document.body);
 > true
 ```
 
-## documentfragment(), df()
+### documentfragment(), df()
 ```js
 is.df(document.createDocumentFragment());
 > true
 ```
 
-## true()
+### true()
 ```js
 is.true(true, !0);
 > true
 ```
 
-## false()
+### false()
 ```js
 is.false(false !1);
 > true
 ```
 
-## truthy()
+### truthy()
 ```js
 is.truthy(true, "hoge", 1, [], {});
 > true
 ```
 
-## falsy()
+### falsy()
 ```js
 is.falsy(null, undefined, "", 0, NaN);
 > true
 ```
 
-## arraylike()
+### arraylike()
 ```js
 is.arraylike([], 'hoge');
 > true

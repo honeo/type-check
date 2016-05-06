@@ -79,6 +79,30 @@ caseArray.push( (arg)=>{
 		&& !is.str('piyo', true);
 });
 
+// undefined
+caseArray.push( (arg)=>{
+	return !is.undefined()
+		&& is.undefined(undefined)
+		&& is.undefined(undefined, undefined)
+		&& !is.undefined(null);
+});
+
+// null
+caseArray.push( (arg)=>{
+	return !is.null()
+		&& is.null(null)
+		&& is.null(null, null)
+		&& !is.null(undefined);
+});
+
+// NaN
+caseArray.push( (arg)=>{
+	return !is.nan()
+		&& is.nan(NaN)
+		&& is.nan(NaN, NaN)
+		&& !is.nan(undefined);
+});
+
 
 
 /// instance
