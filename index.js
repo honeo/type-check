@@ -107,10 +107,14 @@ base.false = isFalse;
 
 /*
 	可変長引数化
+		引数があれば判定関数を渡してevery
+		なければfalseを返す
 */
-for(let [key, value] of Object.entries(base)){
+for(let [key, func] of Object.entries(base)){
 	is[key] = (...args)=>{
-		return args.every(value);
+		return args.length ?
+			args.every(func):
+			false;
 	}
 }
 

@@ -19,7 +19,8 @@ const caseArray = [];
 
 // array, arr
 caseArray.push( (arg)=>{
-	return is.array([])
+	return !is.array()
+		&& is.array([])
 		&& is.arr([])
 		&& is.arr([], [])
 		&& !is.arr('array!')
@@ -28,7 +29,8 @@ caseArray.push( (arg)=>{
 
 // boolean, bool
 caseArray.push( (arg)=>{
-	return is.boolean(true)
+	return !is.boolean()
+		&& is.boolean(true)
 		&& is.bool(false)
 		&& is.bool(true, false)
 		&& !is.bool('boolean!')
@@ -38,7 +40,8 @@ caseArray.push( (arg)=>{
 // function, func
 caseArray.push( (arg)=>{
 	const f = function(){};
-	return is.function(f)
+	return !is.function()
+		&& is.function(f)
 		&& is.func(f)
 		&& is.func(f, f)
 		&& !is.func('function!')
@@ -47,7 +50,8 @@ caseArray.push( (arg)=>{
 
 // number, num
 caseArray.push( (arg)=>{
-	return is.number(123)
+	return !is.number()
+		&& is.number(123)
 		&& is.num(45)
 		&& is.num(22, 80, 443)
 		&& !is.num('number!')
@@ -57,7 +61,8 @@ caseArray.push( (arg)=>{
 // regexp, re
 caseArray.push( (arg)=>{
 	const r = /hoge/;
-	return is.regexp(r)
+	return !is.regexp()
+		&& is.regexp(r)
 		&& is.re(r)
 		&& is.re(r, r)
 		&& !is.re('rexexp!')
@@ -66,7 +71,8 @@ caseArray.push( (arg)=>{
 
 // string, str
 caseArray.push( (arg)=>{
-	return is.string('hoge')
+	return !is.string()
+		&& is.string('hoge')
 		&& is.str('fuga')
 		&& is.str('foo', 'bar')
 		&& !is.str(123)
@@ -79,7 +85,8 @@ caseArray.push( (arg)=>{
 
 // object, obj
 caseArray.push( (arg)=>{
-	return is.object({})
+	return !is.object()
+		&& is.object({})
 		&& is.obj({})
 		&& is.obj({}, {})
 		&& !is.obj('object!')
@@ -89,7 +96,8 @@ caseArray.push( (arg)=>{
 // promise
 caseArray.push( (arg)=>{
 	const p = new Promise(_=>_);
-	return is.promise(p)
+	return !is.promise()
+		&& is.promise(p)
 		&& is.promise(p, p)
 		&& !is.promise('promise!')
 		&& !is.promise(p, true);
@@ -103,7 +111,8 @@ const element = document.createElement('div');
 
 // node
 caseArray.push( (arg)=>{
-	return is.node(textnode)
+	return !is.node()
+		&& is.node(textnode)
 		&& is.node(element)
 		&& is.node(textnode, element)
 		&& !is.node('node!')
@@ -112,7 +121,8 @@ caseArray.push( (arg)=>{
 
 // textnode
 caseArray.push( (arg)=>{
-	return is.textnode(textnode)
+	return !is.textnode()
+		&& is.textnode(textnode)
 		&& is.textnode(textnode, textnode)
 		&& !is.textnode('textnode!')
 		&& !is.textnode(textnode, true);
@@ -120,7 +130,8 @@ caseArray.push( (arg)=>{
 
 // element
 caseArray.push( (arg)=>{
-	return is.element(element)
+	return !is.element()
+		&& is.element(element)
 		&& is.element(element, element)
 		&& !is.element('element!')
 		&& !is.element(element, true);
@@ -129,7 +140,8 @@ caseArray.push( (arg)=>{
 // documentfragment, df
 caseArray.push( (arg)=>{
 	const df = document.createDocumentFragment();
-	return is.documentfragment(df)
+	return !is.documentfragment()
+		&& is.documentfragment(df)
 		&& is.df(df)
 		&& is.df(df, df)
 		&& !is.df('documentfragment!')
@@ -142,7 +154,8 @@ caseArray.push( (arg)=>{
 
 // true
 caseArray.push( (arg)=>{
-	return is.true(true)
+	return !is.true()
+		&& is.true(true)
 		&& is.true(true, true)
 		&& !is.true('true!')
 		&& !is.true(true, false);
@@ -150,7 +163,8 @@ caseArray.push( (arg)=>{
 
 // false
 caseArray.push( (arg)=>{
-	return is.false(false)
+	return !is.false()
+		&& is.false(false)
 		&& is.false(false, false)
 		&& !is.false('false!')
 		&& !is.false(false, true);
