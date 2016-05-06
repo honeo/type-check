@@ -131,3 +131,21 @@ is.true(true, !0);
 is.false(false !1);
 > true
 ```
+
+## truthy()
+```js
+is.truthy(true, "hoge", 1, [], {});
+> true
+```
+
+## falsy()
+```js
+is.falsy(null, undefined, "", 0, NaN);
+> true
+```
+
+## arraylike()
+```js
+is.arraylike([], 'hoge');
+> true
+```

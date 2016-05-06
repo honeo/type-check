@@ -94,16 +94,30 @@ base.df = isDocumentFragment;
 	その他
 */
 function isTrue(arg){
-	return arg===true;
+	return arg===!0;
 }
 base.true = isTrue;
 
 function isFalse(arg){
-	return arg===false;
+	return arg===!1;
 }
 base.false = isFalse;
 
+function isTruthy(arg){
+	return !!arg;
+}
+base.truthy = isTruthy;
 
+function isFalsy(arg){
+	return !arg;
+}
+base.falsy = isFalsy;
+
+// 定義: .lengthを持つtruthyなオブジェクト
+function isArrayLike(arg){
+	return !!arg && arg.hasOwnProperty('length');
+}
+base.arraylike = isArrayLike;
 
 /*
 	可変長引数化

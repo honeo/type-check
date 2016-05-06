@@ -170,6 +170,32 @@ caseArray.push( (arg)=>{
 		&& !is.false(false, true);
 });
 
+// truthy
+caseArray.push( (arg)=>{
+	return !is.truthy()
+		&& is.truthy(true)
+		&& is.truthy("hoge", 123, [], {})
+		&& !is.truthy(null, undefined)
+		&& !is.truthy(true, false);
+});
+
+// falsy
+caseArray.push( (arg)=>{
+	return !is.falsy()
+		&& is.falsy(false)
+		&& is.falsy("", 0, null, undefined, NaN)
+		&& !is.falsy(true, "hoge", 123)
+		&& !is.falsy(true, false);
+});
+
+// arraylike
+caseArray.push( (arg)=>{
+	return !is.arraylike()
+		&& is.arraylike([])
+		&& is.arraylike('hoge', {length: 0})
+		&& !is.arraylike(12345)
+		&& !is.arraylike([], undefined);
+});
 
 
 // 本体
