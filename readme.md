@@ -114,6 +114,24 @@ is.promise(new Promise(_=>_));
 > true
 ```
 
+### odd()
+```js
+is.odd(2);
+> true
+```
+
+### even()
+```js
+is.even(3);
+> true
+```
+
+### multiple(number, number)
+```js
+is.multiple(8080, 80);
+> true
+```
+
 ### node()
 ```js
 is.node(document.createElement('a'), document.createTextNode('hoge'));

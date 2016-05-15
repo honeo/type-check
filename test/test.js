@@ -11,34 +11,34 @@ global.Node = window.Node;
 const is = require('../').default;
 
 // Cases
-const caseArray = [];
+const cases = {}
 
 
 
 /// type
 
 // array, arr
-caseArray.push( (arg)=>{
+cases.array = (arg)=>{
 	return !is.array()
 		&& is.array([])
 		&& is.arr([])
 		&& is.arr([], [])
 		&& !is.arr('array!')
 		&& !is.arr([], true);
-});
+}
 
 // boolean, bool
-caseArray.push( (arg)=>{
+cases.boolean = (arg)=>{
 	return !is.boolean()
 		&& is.boolean(true)
 		&& is.bool(false)
 		&& is.bool(true, false)
 		&& !is.bool('boolean!')
 		&& !is.bool(true, 'true');
-});
+}
 
 // function, func
-caseArray.push( (arg)=>{
+cases.function = (arg)=>{
 	const f = function(){};
 	return !is.function()
 		&& is.function(f)
@@ -46,20 +46,20 @@ caseArray.push( (arg)=>{
 		&& is.func(f, f)
 		&& !is.func('function!')
 		&& !is.func(f, true);
-});
+}
 
 // number, num
-caseArray.push( (arg)=>{
+cases.number = (arg)=>{
 	return !is.number()
 		&& is.number(123)
 		&& is.num(45)
 		&& is.num(22, 80, 443)
 		&& !is.num('number!')
 		&& !is.num(1, true);
-});
+}
 
 // regexp, re
-caseArray.push( (arg)=>{
+cases.regexp = (arg)=>{
 	const r = /hoge/;
 	return !is.regexp()
 		&& is.regexp(r)
@@ -67,65 +67,97 @@ caseArray.push( (arg)=>{
 		&& is.re(r, r)
 		&& !is.re('rexexp!')
 		&& !is.re(r, true);
-});
+}
 
 // string, str
-caseArray.push( (arg)=>{
+cases.string = (arg)=>{
 	return !is.string()
 		&& is.string('hoge')
 		&& is.str('fuga')
 		&& is.str('foo', 'bar')
 		&& !is.str(123)
 		&& !is.str('piyo', true);
-});
+}
 
 // undefined
-caseArray.push( (arg)=>{
+cases.undefined = (arg)=>{
 	return !is.undefined()
 		&& is.undefined(undefined)
 		&& is.undefined(undefined, undefined)
 		&& !is.undefined(null);
-});
+}
 
 // null
-caseArray.push( (arg)=>{
+cases.null = (arg)=>{
 	return !is.null()
 		&& is.null(null)
 		&& is.null(null, null)
 		&& !is.null(undefined);
-});
+}
 
 // NaN
-caseArray.push( (arg)=>{
+cases.nan = (arg)=>{
 	return !is.nan()
 		&& is.nan(NaN)
 		&& is.nan(NaN, NaN)
 		&& !is.nan(undefined);
-});
+}
 
 
 
 /// instance
 
 // object, obj
-caseArray.push( (arg)=>{
+cases.object = (arg)=>{
 	return !is.object()
 		&& is.object({})
 		&& is.obj({})
 		&& is.obj({}, {})
 		&& !is.obj('object!')
 		&& !is.obj({}, true);
-});
+}
 
 // promise
-caseArray.push( (arg)=>{
+cases.orinuse = (arg)=>{
 	const p = new Promise(_=>_);
 	return !is.promise()
 		&& is.promise(p)
 		&& is.promise(p, p)
 		&& !is.promise('promise!')
 		&& !is.promise(p, true);
-});
+}
+
+
+
+/*
+	Number
+*/
+
+// odd
+cases.odd = (arg)=>{
+	return is.odd(0)
+		&& is.odd(2)
+		&& is.odd(4, 6)
+		&& !is.odd(8, 9)
+		&& !is.odd('oddnumber!');
+}
+
+// even
+cases.even = (arg)=>{
+	return is.even(1)
+		&& is.even(3)
+		&& is.even(5, 7)
+		&& !is.even(9, 10)
+		&& !is.even('evennumber!');
+}
+
+// multiple
+cases.multiple = (arg)=>{
+	return is.multiple(4, 2)
+		&& is.multiple(8080, 80)
+		&& !is.multiple(151, 50)
+		&& !is.multiple('multiple!');
+}
 
 
 
@@ -134,35 +166,35 @@ const textnode = document.createTextNode('');
 const element = document.createElement('div');
 
 // node
-caseArray.push( (arg)=>{
+cases.node = (arg)=>{
 	return !is.node()
 		&& is.node(textnode)
 		&& is.node(element)
 		&& is.node(textnode, element)
 		&& !is.node('node!')
 		&& !is.node(textnode, true);
-});
+}
 
 // textnode
-caseArray.push( (arg)=>{
+cases.textnode = (arg)=>{
 	return !is.textnode()
 		&& is.textnode(textnode)
 		&& is.textnode(textnode, textnode)
 		&& !is.textnode('textnode!')
 		&& !is.textnode(textnode, true);
-});
+}
 
 // element
-caseArray.push( (arg)=>{
+cases.element = (arg)=>{
 	return !is.element()
 		&& is.element(element)
 		&& is.element(element, element)
 		&& !is.element('element!')
 		&& !is.element(element, true);
-});
+}
 
 // documentfragment, df
-caseArray.push( (arg)=>{
+cases.documentfragment = (arg)=>{
 	const df = document.createDocumentFragment();
 	return !is.documentfragment()
 		&& is.documentfragment(df)
@@ -170,63 +202,65 @@ caseArray.push( (arg)=>{
 		&& is.df(df, df)
 		&& !is.df('documentfragment!')
 		&& !is.df(df, true);
-});
+}
 
 
 
-/// Other
+/*
+	Other
+*/
 
 // true
-caseArray.push( (arg)=>{
+cases.true = (arg)=>{
 	return !is.true()
 		&& is.true(true)
 		&& is.true(true, true)
 		&& !is.true('true!')
 		&& !is.true(true, false);
-});
+}
 
 // false
-caseArray.push( (arg)=>{
+cases.false = (arg)=>{
 	return !is.false()
 		&& is.false(false)
 		&& is.false(false, false)
 		&& !is.false('false!')
 		&& !is.false(false, true);
-});
+}
 
 // truthy
-caseArray.push( (arg)=>{
+cases.truthy = (arg)=>{
 	return !is.truthy()
 		&& is.truthy(true)
 		&& is.truthy("hoge", 123, [], {})
 		&& !is.truthy(null, undefined)
 		&& !is.truthy(true, false);
-});
+}
 
 // falsy
-caseArray.push( (arg)=>{
+cases.falsy = (arg)=>{
 	return !is.falsy()
 		&& is.falsy(false)
 		&& is.falsy("", 0, null, undefined, NaN)
 		&& !is.falsy(true, "hoge", 123)
 		&& !is.falsy(true, false);
-});
+}
 
 // arraylike
-caseArray.push( (arg)=>{
+cases.arraylike = (arg)=>{
 	return !is.arraylike()
 		&& is.arraylike([])
 		&& is.arraylike('hoge', {length: 0})
 		&& !is.arraylike(12345)
 		&& !is.arraylike([], undefined);
-});
+}
 
 
 // 本体
-caseArray.forEach( (func, index, array)=>{
-	if( func() ){
-		console.log(`${index+1}/${array.length}: success`)
+for(let [key, value] of Object.entries(cases)){
+	if( value() ){
+		console.log(`${key}: success`);
 	}else{
-		throw new Error(`${index}/${array.length}: failed`)
+		throw new Error(`${key}: failed`);
 	}
-});
+}

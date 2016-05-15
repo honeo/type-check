@@ -79,6 +79,31 @@ base.promise = isPromise;
 
 
 /*
+	Number
+		数値じゃなければタイプエラーを投げたほうがいい気がする
+*/
+
+// 偶数判定（0含む)
+function isOddNumber(num){
+	return isNumber(num) &&	!(num % 2);
+}
+base.odd = isOddNumber;
+
+// 奇数判定
+function isEvenNumber(num){
+	return isNumber(num) && !!(num % 2);
+}
+base.even = isEvenNumber;
+
+// 倍数判定, AがBの倍数か
+function isMultiple(A, B){
+	return is.number(A, B) && !(A%B);
+}
+is.multiple = isMultiple;
+
+
+
+/*
 	DOM
 */
 function isNode(arg){
