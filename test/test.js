@@ -1,16 +1,17 @@
 console.log('type-check: test');
 
+// babel
+require('babel-polyfill');
+require("babel-register")({
+	presets: ['latest', 'stage-0']
+});
+
 // jsdom + var
 const JSDOM = require('jsdom');
 global.document = JSDOM.jsdom('hogehoge');
 global.head = document.head;
 global.window = document.defaultView;
 global.Node = window.Node;
-
-// babel
-require("babel-register")({
-	presets: ['latest', 'stage-0']
-});
 
 // modules
 const is = require('../').default;
