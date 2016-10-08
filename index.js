@@ -4,6 +4,7 @@
 */
 const base = {}
 const is = {}
+const not = {}
 
 /*
 	型チェック
@@ -158,23 +159,44 @@ function isFalsy(arg){
 }
 base.falsy = isFalsy;
 
-// 定義: .lengthを持つtruthyなオブジェクト
+// 定義: truthyで、.lengthで数値を返すもの
 function isArrayLike(arg){
-	return !!arg && arg.hasOwnProperty('length');
+	return !!arg && typeof arg.length==='number';
 }
 base.arraylike = isArrayLike;
 
 /*
-	可変長引数化
+	is, not化
+		可変長引数化
+	is
 		引数があれば判定関数を渡してevery
 		なければfalseを返す
+	not
+		引数があれば判定関数を渡してeveryして結果を反転
+		なければtrueを返す
 */
 for(let [key, func] of Object.entries(base)){
+
+	// is
 	is[key] = (...args)=>{
 		return args.length ?
 			args.every(func):
 			false;
 	}
+
+	// not
+	not[key] = (...args)=>{
+		return args.length ?
+			!args.every(func):
+			true;
+	}
+
 }
 
-export default is;
+
+
+
+export default {
+	is,
+	not
+}

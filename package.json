@@ -1,6 +1,6 @@
 {
   "name": "@honeo/type-check",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "型・インスタンスのチェックなど",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-core": "^6.8.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-0": "^6.5.0",
     "jsdom": "^8.5.0"

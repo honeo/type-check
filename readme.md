@@ -1,6 +1,6 @@
 # type-check
-[honeo/type-check](https://github.com/honeo/type-check)    
-[@honeo/type-check](https://www.npmjs.com/package/@honeo/type-check)
+* [honeo/type-check](https://github.com/honeo/type-check)
+* [@honeo/type-check](https://www.npmjs.com/package/@honeo/type-check)
 
 ## なにこれ
 型・インスタンス等をチェックするやつ。  
@@ -11,19 +11,21 @@ Polyfill前提。
 $ npm i -S @honeo/type-check
 ```
 ```js
-import is from '@honeo/type-check';
-
-is.num();
-> false
+import {is, not} from '@honeo/type-check';
 
 is.arr([]);
 > true
 
-is.str('hoge', 'fuga');
-> true
+not.num('hoge');
+> false
+
+is.obj({}, null);
+> false
 ```
 
 ## API
+is, not共用。
+
 ### array(), arr()
 ```js
 is.array([]);

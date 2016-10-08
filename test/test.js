@@ -3,6 +3,7 @@ console.log('type-check: test');
 // babel
 require('babel-polyfill');
 require("babel-register")({
+	plugins: ['add-module-exports'],
 	presets: ['latest', 'stage-0']
 });
 
@@ -14,7 +15,7 @@ global.window = document.defaultView;
 global.Node = window.Node;
 
 // modules
-const is = require('../').default;
+const {is, not} = require('../');
 
 // Cases
 const cases = {}
@@ -271,10 +272,33 @@ cases.arraylike = (arg)=>{
 
 
 // 本体
-for(let [key, value] of Object.entries(cases)){
-	if( value() ){
+for(let [key, method] of Object.entries(cases)){
+	if( method() ){
 		console.log(`${key}: success`);
 	}else{
 		throw new Error(`${key}: failed`);
 	}
 }
+
+
+/*
+	not
+		中身はほぼ一緒だから一例だけ
+*/
+const resultArr = [
+	not.string(),
+	!not.string('hoge'),
+	!not.str('fuga'),
+	!not.str('foo', 'bar'),
+	not.str(123),
+	not.str(true, false),
+	not.str('piyo', true)
+];
+
+resultArr.forEach( (bool, index, arr)=>{
+	if( bool ){
+		console.log(`not: ${index+1}/${arr.length} success`);
+	}else{
+		throw new Error(`not: ${index}/${arr.length} failed`);
+	}
+});
