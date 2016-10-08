@@ -7,6 +7,11 @@ global.head = document.head;
 global.window = document.defaultView;
 global.Node = window.Node;
 
+// babel
+require("babel-register")({
+	presets: ['latest', 'stage-0']
+});
+
 // modules
 const is = require('../').default;
 
@@ -106,6 +111,14 @@ cases.nan = (arg)=>{
 
 
 /// instance
+
+// date
+cases.date = (arg)=>{
+	return !is.date()
+		&& !is.date({})
+		&& !is.date('date object')
+		&& is.date(new Date());
+}
 
 // object, obj
 cases.object = (arg)=>{

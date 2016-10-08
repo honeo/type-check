@@ -96,6 +96,12 @@ is.nan(NaN);
 > true
 ```
 
+### date()
+```js
+is.date(new Date());
+> true
+```
+
 ### object(), obj()
 ```js
 is.object({});

@@ -54,6 +54,7 @@ function isNull(arg){
 }
 base.null = isNull;
 
+// arg!=argでいい気もするがPolyfill前提のコンセプトのため
 function isNaN(arg){
 	return Number.isNaN(arg);
 }
@@ -63,9 +64,15 @@ base.nan = isNaN;
 	インスタンス判定
 */
 
+function isDate(arg){
+	return arg instanceof Date;
+}
+base.date = isDate;
+
 // typeofと違ってnullは弾く
 function isObject(arg){
 	return arg instanceof Object;
+	// return !!arg && arg===Object(arg);
 }
 base.object = isObject;
 base.obj = isObject;
