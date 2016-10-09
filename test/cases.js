@@ -1,4 +1,5 @@
 import {is, not} from '../';
+import _is from '../is';
 import JSDOM from 'jsdom';
 
 // jsdom set
@@ -291,7 +292,10 @@ const resultArr = [
 
 	// element
 	not.element(true),
-	!not.element(element)
+	!not.element(element),
+
+	// 読み込みチェック
+	(is===_is)
 ];
 
 resultArr.forEach( (bool, index, arr)=>{

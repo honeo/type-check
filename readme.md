@@ -12,6 +12,8 @@ $ npm i -S @honeo/type-check
 ```
 ```js
 import {is, not} from '@honeo/type-check';
+// or
+import is from '@honeo/type-check/is';
 
 is.arr([]);
 > true
