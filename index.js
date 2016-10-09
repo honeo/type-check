@@ -166,37 +166,31 @@ function isArrayLike(arg){
 base.arraylike = isArrayLike;
 
 /*
-	is, not化
-		可変長引数化
 	is
+		baseを可変長引数化
 		引数があれば判定関数を渡してevery
 		なければfalseを返す
-	not
-		引数があれば判定関数を渡してeveryして結果を反転
-		なければtrueを返す
 */
 for(let [key, func] of Object.entries(base)){
-
-	// is
 	is[key] = (...args)=>{
 		return args.length ?
 			args.every(func):
 			false;
 	}
+}
 
-	// not
+/*
+	isを元にnot作成
+*/
+for(let [key, func] of Object.entries(is) ){
 	not[key] = (...args)=>{
-		return args.length ?
-			!args.every(func):
-			true;
+		return !func(...args);
 	}
-
 }
 
 
 
-
-export default {
+export {
 	is,
 	not
 }
