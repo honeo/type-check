@@ -7,6 +7,7 @@ global.document = JSDOM.jsdom('hogehoge');
 global.head = document.head;
 global.window = document.defaultView;
 global.Node = window.Node;
+global.Event = window.Event;
 
 // Cases
 const cases = {}
@@ -110,6 +111,25 @@ cases.date = (arg)=>{
 		&& !is.date('date object')
 		&& is.date(new Date());
 }
+
+// event
+cases.event = (arg)=>{
+	return !is.event()
+		&& !is.event({})
+		&& !is.event('event')
+		&& is.event( new Event('hoge') );
+}
+
+/// jsdomではEventTargetがfunctionではなくobjectなためinstanceofで判定ができないから省略
+// // eventtarget
+// cases.eventtarget = (arg)=>{
+// 	return !is.eventtarget()
+// 		&& !is.eventtarget({})
+// 		&& !is.eventtarget('eventtarget')
+// 	&& is.eventtarget(window);
+// }
+
+// eventtarget
 
 // object, obj
 cases.object = (arg)=>{

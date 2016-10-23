@@ -69,6 +69,16 @@ function isDate(arg){
 }
 base.date = isDate;
 
+function isEvent(arg){
+	return arg instanceof Event;
+}
+base.event = isEvent;
+
+function isEventTarget(arg){
+	return arg instanceof EventTarget;
+}
+base.eventtarget = isEventTarget;
+
 // typeofと違ってnullは弾く
 function isObject(arg){
 	return arg instanceof Object;

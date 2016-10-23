@@ -106,6 +106,18 @@ is.date(new Date());
 > true
 ```
 
+### event()
+```js
+is.event( new Event("hoge") );
+> true
+```
+
+### eventtarget()
+```js
+is.eventtarget(document, window);
+> true
+```
+
 ### object(), obj()
 ```js
 is.object({});
