@@ -1,6 +1,6 @@
 {
   "name": "@honeo/type-check",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "型・インスタンスのチェックなど",
   "main": "index.js",
   "scripts": {
