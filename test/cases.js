@@ -279,6 +279,15 @@ cases.arraylike = (arg)=>{
 		&& !is.arraylike([], undefined);
 }
 
+// isComparisonOperator
+cases.comparisonoperator = (arg)=>{
+	return !is.comparisonoperator()
+		&& is.comparisonoperator('<')
+		&& is.comparisonoperator('!==')
+		&& !is.comparisonoperator('&&')
+		&& !is.comparisonoperator(true, '>');
+}
+
 
 // 本体
 for(let [key, method] of Object.entries(cases)){

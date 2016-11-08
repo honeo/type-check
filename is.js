@@ -1,3 +1,5 @@
+import isComparisonOperator from './lib/is-comparison-operator.js';
+
 /*
 	可変長引数に対応するものはbaseに
 	そうでないものはisに登録する
@@ -173,6 +175,8 @@ function isArrayLike(arg){
 	return !!arg && typeof arg.length==='number';
 }
 base.arraylike = isArrayLike;
+
+base.comparisonoperator = isComparisonOperator;
 
 /*
 	is

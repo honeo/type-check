@@ -28,7 +28,9 @@ is.obj({}, null);
 ## API
 is, not共用。
 
-### array(), arr()
+### Type
+
+#### array(), arr()
 ```js
 is.array([]);
 > true
@@ -37,7 +39,7 @@ is.arr([], []);
 > true
 ```
 
-### boolean(), bool()
+#### boolean(), bool()
 ```js
 is.boolean(false);
 > true
@@ -46,7 +48,7 @@ is.bool(true, false);
 > true
 ```
 
-### function(), func()
+#### function(), func()
 ```js
 is.function(function(){});
 > true
@@ -55,7 +57,7 @@ is.func(_=>_, _=>_);
 > true
 ```
 
-### number(), num()
+#### number(), num()
 ```js
 is.number(1);
 > true
@@ -64,7 +66,7 @@ is.num(0, 1);
 > true
 ```
 
-### regexp(), re()
+#### regexp(), re()
 ```js
 is.regexp(/hoge/);
 > true
@@ -73,7 +75,7 @@ is.re(/foo/, /bar/);
 > true
 ```
 
-### string(), str()
+#### string(), str()
 ```js
 is.string('hoge');
 > true
@@ -82,43 +84,31 @@ is.str('fuga', 'piyo');
 > true
 ```
 
-### undefined()
+#### undefined()
 ```js
 is.undefined(undefined);
 > true
 ```
 
-### null()
+#### null()
 ```js
 is.null(null);
 > true
 ```
 
-### nan()
+#### nan()
 ```js
 is.nan(NaN);
 > true
 ```
 
-### date()
+#### date()
 ```js
 is.date(new Date());
 > true
 ```
 
-### event()
-```js
-is.event( new Event("hoge") );
-> true
-```
-
-### eventtarget()
-```js
-is.eventtarget(document, window);
-> true
-```
-
-### object(), obj()
+#### object(), obj()
 ```js
 is.object({});
 > true
@@ -130,80 +120,106 @@ is.obj(null);
 > false
 ```
 
-### promise()
+#### promise()
 ```js
 is.promise(new Promise(_=>_));
 > true
 ```
 
-### odd()
+### 数値
+
+#### odd()
 ```js
 is.odd(2);
 > true
 ```
 
-### even()
+#### even()
 ```js
 is.even(3);
 > true
 ```
 
-### multiple(number, number)
+#### multiple(number, number)
 ```js
 is.multiple(8080, 80);
 > true
 ```
 
-### node()
+### DOM
+
+#### node()
 ```js
 is.node(document.createElement('a'), document.createTextNode('hoge'));
 > true
 ```
 
-### textnode()
+#### textnode()
 ```js
 is.textnode(document.createTextNode('hoge'));
 > true
 ```
 
-### element()
+#### element()
 ```js
 is.element(document.head, document.body);
 > true
 ```
 
-### documentfragment(), df()
+#### documentfragment(), df()
 ```js
 is.df(document.createDocumentFragment());
 > true
 ```
 
-### true()
+
+#### event()
+```js
+is.event( new Event("hoge") );
+> true
+```
+
+#### eventtarget()
+```js
+is.eventtarget(document, window);
+> true
+```
+
+### その他
+
+#### true()
 ```js
 is.true(true, !0);
 > true
 ```
 
-### false()
+#### false()
 ```js
 is.false(false !1);
 > true
 ```
 
-### truthy()
+#### truthy()
 ```js
 is.truthy(true, "hoge", 1, [], {});
 > true
 ```
 
-### falsy()
+#### falsy()
 ```js
 is.falsy(null, undefined, "", 0, NaN);
 > true
 ```
 
-### arraylike()
+#### arraylike()
 ```js
 is.arraylike([], 'hoge');
+> true
+```
+
+#### comparisonoperator()
+有効な比較演算子の文字列かどうか。
+```js
+is.comparisonoperator('<=');
 > true
 ```
