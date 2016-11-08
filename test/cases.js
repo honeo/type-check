@@ -298,6 +298,16 @@ cases.semver = (arg)=>{
 		&& !is.semver(true, '1.0.0')
 }
 
+// isVersion
+cases.version = (arg)=>{
+	return !is.version()
+		&& is.version('1.2.3')
+		// && is.version('1.0.0.0', '7.7.7.7.7.7.7')
+		// && !is.version('1.2.3.4.')
+		// && !is.version(1.0)
+		// && !is.version(true, '1.0.0A')
+}
+
 // 本体
 for(let [key, method] of Object.entries(cases)){
 	if( method() ){

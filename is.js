@@ -1,5 +1,6 @@
 import isComparisonOperator from './lib/is-comparison-operator.js';
 import isSemVer from './lib/is-sem-ver.js';
+import isVersion from './lib/is-version.js';
 
 /*
 	可変長引数に対応するものはbaseに
@@ -179,6 +180,7 @@ base.arraylike = isArrayLike;
 
 base.comparisonoperator = isComparisonOperator;
 base.semver = isSemVer;
+base.version = isVersion;
 
 /*
 	is

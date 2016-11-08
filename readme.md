@@ -230,6 +230,16 @@ is.comparisonoperator('<=');
 is.semver('1.2.3');
 > true
 
-is.semver('1.0.0-foo.bar')
+is.semver('1.0.0-foo.bar');
 > true
+```
+
+#### versiom()
+有効な数字とdotからなるバージョン文字列か。
+```js
+is.version('7.7.4');
+> true
+
+is.version('1.2A');
+> false
 ```
