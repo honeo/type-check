@@ -218,8 +218,18 @@ is.arraylike([], 'hoge');
 ```
 
 #### comparisonoperator()
-有効な比較演算子の文字列かどうか。
+有効な比較演算子の文字列か。
 ```js
 is.comparisonoperator('<=');
+> true
+```
+
+#### semver()
+有効なSemVer文字列か。
+```js
+is.semver('1.2.3');
+> true
+
+is.semver('1.0.0-foo.bar')
 > true
 ```

@@ -288,6 +288,15 @@ cases.comparisonoperator = (arg)=>{
 		&& !is.comparisonoperator(true, '>');
 }
 
+// isSemVer
+cases.semver = (arg)=>{
+	return !is.semver()
+		&& is.semver('1.2.3')
+		&& is.semver('1.0.0-foo.bar', '2.2.2')
+		&& !is.semver('1.2.3.4')
+		&& !is.semver(1.0)
+		&& !is.semver(true, '1.0.0')
+}
 
 // 本体
 for(let [key, method] of Object.entries(cases)){

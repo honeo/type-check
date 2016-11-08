@@ -1,4 +1,5 @@
 import isComparisonOperator from './lib/is-comparison-operator.js';
+import isSemVer from './lib/is-sem-ver.js';
 
 /*
 	可変長引数に対応するものはbaseに
@@ -177,6 +178,7 @@ function isArrayLike(arg){
 base.arraylike = isArrayLike;
 
 base.comparisonoperator = isComparisonOperator;
+base.semver = isSemVer;
 
 /*
 	is
