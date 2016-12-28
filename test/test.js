@@ -7,4 +7,4 @@ require("babel-register")({
 });
 
 const result = require('./cases.js').default;
-console.log('type-check: test', result);
+console.log('type-check: test done');

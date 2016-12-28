@@ -302,10 +302,22 @@ cases.semver = (arg)=>{
 cases.version = (arg)=>{
 	return !is.version()
 		&& is.version('1.2.3')
-		// && is.version('1.0.0.0', '7.7.7.7.7.7.7')
-		// && !is.version('1.2.3.4.')
-		// && !is.version(1.0)
-		// && !is.version(true, '1.0.0A')
+		&& is.version('1.0.0.0', '7.7.7.7.7.7.7')
+		&& !is.version('1.2.3.4.')
+		&& !is.version(1.0)
+		&& !is.version(true, '1.0.0A')
+}
+
+// isEmpty
+cases.empty = (arg)=>{
+	return is.empty({})
+		&& is.empty([])
+		&& is.empty('')
+		&& !is.empty()
+		&& !is.empty(null)
+		&& !is.empty({a: 1})
+		&& !is.empty([1])
+		&& !is.empty('0');
 }
 
 // 本体
