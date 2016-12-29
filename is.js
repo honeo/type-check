@@ -2,6 +2,13 @@ import isComparisonOperator from './lib/is-comparison-operator.js';
 import isSemVer from './lib/is-sem-ver.js';
 import isVersion from './lib/is-version.js';
 import isEmpty from './lib/is-empty.js';
+import isArray from './lib/is-array.js';
+import isBoolean from './lib/is-boolean.js';
+import isFunction from './lib/is-function.js';
+import isNumber from './lib/is-number.js';
+import isRegExp from './lib/is-reg-exp.js';
+import isString from './lib/is-string.js';
+import isUndefined from './lib/is-undefined.js';
 
 /*
 	可変長引数に対応するものはbaseに
@@ -13,45 +20,24 @@ const is = {}
 /*
 	型チェック
 */
-function isArray(arg){
-	return Array.isArray(arg);
-}
 base.array = isArray;
 base.arr = isArray;
 
-function isBoolean(arg){
-	return typeof arg==='boolean';
-}
 base.boolean = isBoolean;
 base.bool = isBoolean;
 
-function isFunction(arg){
-	return typeof arg==='function';
-}
 base.function = isFunction;
 base.func = isFunction;
 
-function isNumber(arg){
-	return typeof arg==='number';
-}
 base.number = isNumber;
 base.num = isNumber;
 
-function isRegExp(arg){
-	return arg instanceof RegExp;
-}
 base.regexp = isRegExp;
 base.re = isRegExp;
 
-function isString(arg){
-	return typeof arg==='string';
-}
 base.string = isString;
 base.str = isString;
 
-function isUndefined(arg){
-	return arg===undefined;
-}
 base.undefined = isUndefined;
 
 function isNull(arg){
