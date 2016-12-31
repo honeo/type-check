@@ -20,14 +20,15 @@ import isEven from './lib/is-even.js';
 import isMultiple from './lib/is-multiple.js';
 // DOM
 import isNode from './lib/is-node.js';
-import isTextNode from './lib/is-text-node.js';
+import isTextNode from './lib/is-textnode.js';
 import isElement from './lib/is-element.js';
-import isDocumentFragment frmo './lib/is-document-fragment.js';
+import isDocumentFragment from './lib/is-document-fragment.js';
 // 雑多
 import isTrue from './lib/is-true.js';
 import isFalse from './lib/is-false.js';
 import isTruthy from './lib/is-truthy.js';
 import isFalsy from './lib/is-falsy.js';
+import isObjectLiteral from './lib/is-object-literal.js';
 import isArrayLike from './lib/is-array-like.js';
 import isComparisonOperator from './lib/is-comparison-operator.js';
 import isSemVer from './lib/is-sem-ver.js';
@@ -115,6 +116,8 @@ base.false = isFalse;
 base.truthy = isTruthy;
 
 base.falsy = isFalsy;
+
+base.objectliteral = isObjectLiteral;
 
 base.arraylike = isArrayLike;
 

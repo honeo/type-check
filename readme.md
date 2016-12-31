@@ -175,6 +175,13 @@ is.truthy(true, "hoge", 1, [], {}); // true
 is.falsy(null, undefined, "", 0, NaN); // true
 ```
 
+#### objectliteral()
+何も継承していない素のオブジェクトか。
+```js
+is.objectliteral({}); // true
+not.objectliteral([], new function(){}); // true
+```
+
 #### arraylike()
 ```js
 is.arraylike([], 'hoge'); // true

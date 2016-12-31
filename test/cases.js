@@ -270,6 +270,15 @@ cases.falsy = (arg)=>{
 		&& !is.falsy(true, false);
 }
 
+// objectliteral
+cases.objectliteral = (arg)=>{
+	return !is.objectliteral()
+		&& is.objectliteral({})
+		&& is.objectliteral({}, new Object({}))
+		&& !is.objectliteral( new function(){} )
+		&& !is.objectliteral({}, []);
+}
+
 // arraylike
 cases.arraylike = (arg)=>{
 	return !is.arraylike()
