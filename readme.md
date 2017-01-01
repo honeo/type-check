@@ -2,6 +2,9 @@
 * [honeo/type-check](https://github.com/honeo/type-check)
 * [@honeo/type-check](https://www.npmjs.com/package/@honeo/type-check)
 
+## Deprecated
+Use [honeo/check](https://github.com/honeo/check) instead.
+
 ## なにこれ
 型・インスタンス等をチェックするやつ。  
 Polyfill前提。
